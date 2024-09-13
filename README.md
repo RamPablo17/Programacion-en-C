@@ -45,6 +45,10 @@ standard ANSI-C.
 <p>El lenguaje C posee un número reducido de palabras reservadas (tan solo 32)
 que define el standard ANSI-C. Estas palabras reservadas pueden verse en la tabla
 siguiente:</p>
-![image](https://github.com/user-attachments/assets/de6b7d23-d27e-4623-b3d9-ae7335e5abe5)
+
+![image](https://github.com/user-attachments/assets/a87d28bc-6f5e-4e1c-a414-f1f85a622454)
+![image](https://github.com/user-attachments/assets/2c3ea3c6-315c-45c8-bb84-f3c1ea30de6f)
+
+
 
 
