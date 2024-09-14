@@ -37,9 +37,25 @@ signo). El rango de valores de que permite cada variable depende del sistema ope
 
 ![image](https://github.com/user-attachments/assets/101161d3-bb50-4ef0-b561-be461cb155af)
 
-<p>La declaración de una variable como const permite asegurarse de que su valor no será modificado por el programa, excepto en el momento de su declaración, en el cual debe asignársele un valor inicial. Así, si declaramos la siguiente variable: <br>
-const int x=237;<br><br>
-Cualquier intento posterior de modificar el valor de x, tal como x=x+5;, producirá un error en tiempo de compilación.La declaración de una variable como volatile, indica al compilador que dicha variable puede modificarse por un proceso externo al propio programa (tal como la hora del sistema), y por ello, que no trate de optimizar dicha variable suponiéndole un valor constante, etc. Ello fuerza a que cada vez que se usa la variable, se realice una comprobación de su valor.<br>
-Los modificadores const y volatile pueden usarse de forma conjunta en ciertos casos, por lo cual no son excluyentes el uno del otro. Ello es posible si se declara una variable que actualizara el reloj del sistema, (proceso externo al programa), y que no queremos pueda modificarse en el interior del programa. Por ello, <br> podremos declarar:<br><br>
-volatile const unsigned long int hora;
-</p>
+<p>La declaración de una variable como const permite asegurarse de que su valor no será modificado por el programa, excepto en el momento de su declaración, en el cual debe asignársele un valor inicial. Así, si declaramos la siguiente variable:</p>
+<p>const int x=237;</p>
+<p>Cualquier intento posterior de modificar el valor de x, tal como x=x+5;, producirá un error en tiempo de compilación.</p>
+<p> La declaración de una variable como volatile, indica al compilador que dicha variable puede modificarse por un proceso externo al propio programa (tal como la hora del sistema), y por ello, que no trate de optimizar dicha variable suponiéndole un valor constante, etc. Ello fuerza a que cada vez que se usa la variable, se realice una comprobación de su valor.<br>
+Los modificadores const y volatile pueden usarse de forma conjunta en ciertos casos, por lo cual no son excluyentes el uno del otro. Ello es posible si se declara una variable que actualizara el reloj del sistema, (proceso externo al programa), y que no queremos pueda modificarse en el interior del programa. Por ello, <br> podremos declarar:</p>
+<p>volatile const unsigned long int hora;</p>
+
+<h3>2.3 - Declaración de variables y alcance.</h3>
+<p>En C, las variables pueden ser declaradas en cuatro lugares del módulo del
+programa:</p>
+<p>• Fuera de todas las funciones del programa, son las llamadas variables globales,
+accesibles desde cualquier parte del programa.<br><br> 
+•Dentro de una función, son las llamadas variables locales, accesibles tan solo por la función en las que se declaran.<br><br>
+• Como parámetros a la función, accesibles de igual forma que si se declararan
+dentro de la función.<br><br>
+• Dentro de un bloque de código del programa, accesible tan solo dentro del
+bloque donde se declara. Esta forma de declaración puede interpretarse como
+una variable local del bloque donde se declara.</p>
+<p>Para un mejor comprensión, veamos un pequeño programa de C con variables
+declaradas de las cuatro formas posibles:</p>
+
+![image](https://github.com/user-attachments/assets/0cb441eb-8936-43f0-b387-c071c03a7174)
