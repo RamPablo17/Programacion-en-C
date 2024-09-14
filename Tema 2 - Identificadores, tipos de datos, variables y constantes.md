@@ -6,3 +6,40 @@ y constantes. </h1>
 <p>Antes de proceder a explicar los identificadores en C, es necesario resaltar que C es un lenguaje sensible al contexto, a diferencia por ejemplo de Pascal, por lo cual, C diferencia entre mayúsculas y minúsculas, y por tanto, diferencia entre una palabra escrita total o parcialmente en mayúsculas y otra escrita completamente en minúsculas.</p>
 
 <p>En el lenguaje C, un identificador es cualquier palabra no reservada que comience por una letra o por un subrayado, pudiendo contener en su interior letras,números y subrayados. La longitud máxima de un identificador depende del compilador que se este usando, pero, generalmente, suelen ser de 32 caracteres, ignorándose todos aquellos caracteres que compongan el identificador y sobrepasen la longitud máxima. Recuérdese, además, que al ser C sensible al contexto, un identificador escrito como esto_es_un_ident y otra vez como Esto_Es_Un_Ident será interpretado como dos identificadores completamente distintos.</p>
+
+<h1> 2.2 - Tipos de datos, modificadores de tipo y modificadores
+de acceso. </h1>
+
+<P>En C, toda variable, antes de poder ser usada, debe ser declarada, especificando con ello el tipo de dato que almacenara. Toda variable en C se declara de la forma: <tipo de dato> <nombre de variable> [, nombre de variable]; En C existen cinco tipos de datos según puede verse en la tabla siguiente: </P>
+
+![image](https://github.com/user-attachments/assets/74759276-8285-41d7-b76d-ba236b4660cf)
+
+<P>Algunos ejemplos de variables de C serían:<br>
+float a;<br>
+int b,c;<br>
+char caracter,otro_caracter;</P>
+
+<p>Existen, además, cuatro modificadores de tipo, los cuales se aplican sobre los tipos de datos anteriormente citados. Los modificadores de tipo permiten cambiar el tamaño, etc., de los tipos de datos anteriormente especificados. Estos modificadores, que sintácticamente anteceden a la declaración del tipo de dato, son:
+</p>
+
+![image](https://github.com/user-attachments/assets/c935b487-9261-4b3b-9678-dd417d3d7804)
+
+<p>Es por ello, que podemos declarar variables como:<br>
+unsigned char a;<br>
+long double b;<br>
+short int i;<br>
+Es posible, además, aplicar dos modificadores seguidos a un mismo tipo de datos, así, es posible definir una variable de tipo unsigned long int (entero largo sin
+signo). El rango de valores de que permite cada variable depende del sistema operativosobre el cual se trabaje (MS-DOS, Windows95/98/NT/2000, UNIX/Linux), por lo cualconviene referirse al manual del compilador para conocerlo. De forma general, lossistemas operativos de 16 bits (MS-DOS, Windows 16 bits) poseen un rango y los de 32 bits (Windows 32 bits, UNIX/Linux) otro </p>
+
+![image](https://github.com/user-attachments/assets/732f8c53-464e-428d-be41-d077a00c426b)
+
+<p>Además de los modificadores de tipo existen modificadores de acceso. Los modificadores de acceso limitan el uso que puede realizarse de las variables declaradas. Los modificadores de acceso anteceden a la declaración del tipo de dato de la variable y son los siguientes:</p>
+
+![image](https://github.com/user-attachments/assets/101161d3-bb50-4ef0-b561-be461cb155af)
+
+<p>La declaración de una variable como const permite asegurarse de que su valor no será modificado por el programa, excepto en el momento de su declaración, en el cual debe asignársele un valor inicial. Así, si declaramos la siguiente variable: <br>
+const int x=237;<br><br>
+Cualquier intento posterior de modificar el valor de x, tal como x=x+5;, producirá un error en tiempo de compilación.La declaración de una variable como volatile, indica al compilador que dicha variable puede modificarse por un proceso externo al propio programa (tal como la hora del sistema), y por ello, que no trate de optimizar dicha variable suponiéndole un valor constante, etc. Ello fuerza a que cada vez que se usa la variable, se realice una comprobación de su valor.<br>
+Los modificadores const y volatile pueden usarse de forma conjunta en ciertos casos, por lo cual no son excluyentes el uno del otro. Ello es posible si se declara una variable que actualizara el reloj del sistema, (proceso externo al programa), y que no queremos pueda modificarse en el interior del programa. Por ello, <br> podremos declarar:<br><br>
+volatile const unsigned long int hora;
+</p>
