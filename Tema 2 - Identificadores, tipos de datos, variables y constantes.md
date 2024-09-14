@@ -25,9 +25,9 @@ char caracter,otro_caracter;</P>
 ![image](https://github.com/user-attachments/assets/c935b487-9261-4b3b-9678-dd417d3d7804)
 
 <p>Es por ello, que podemos declarar variables como:<br>
-unsigned char a;<br>
+<pre>unsigned char a;<br>
 long double b;<br>
-short int i;<br>
+short int i;<br></pre>
 Es posible, además, aplicar dos modificadores seguidos a un mismo tipo de datos, así, es posible definir una variable de tipo unsigned long int (entero largo sin
 signo). El rango de valores de que permite cada variable depende del sistema operativosobre el cual se trabaje (MS-DOS, Windows95/98/NT/2000, UNIX/Linux), por lo cualconviene referirse al manual del compilador para conocerlo. De forma general, lossistemas operativos de 16 bits (MS-DOS, Windows 16 bits) poseen un rango y los de 32 bits (Windows 32 bits, UNIX/Linux) otro </p>
 
@@ -59,3 +59,29 @@ una variable local del bloque donde se declara.</p>
 declaradas de las cuatro formas posibles:</p>
 
 ![image](https://github.com/user-attachments/assets/0cb441eb-8936-43f0-b387-c071c03a7174)
+
+<h4>2.4 - Especificadores de almacenamiento de los tipos de
+datos.</h4>
+
+<p>Una vez explicada la declaración de variables y su alcance, vamos a proceder a explicar como es posible modificar el alcance del almacenamiento de los datos. Ello es posible realizarlo mediante los especificadores de almacenamiento. Existen cuatro especificadores de almacenamiento. Estos especificadores de almacenamiento, cuando se usan, deben preceder a la declaración del tipo de dato de la variable. Estos especificadores de almacenamiento son:</p>
+
+![image](https://github.com/user-attachments/assets/2089c6a1-0ffa-4dd5-a500-2ff9763bbaa5)
+
+<p>El especificador auto se usa para declarar que una variable local existesolamente mientras estemos dentro de la subrutina o bloque de programa donde se
+declara, pero, dado que por defecto toda variable local es auto, no suele usarse.<br><br>El especificador extern se usa en el desarrollo de programas compuestos por
+varios módulos. El modificador extern se usa sobre las variables globales del módulo, de forma que si una variable global se declara como extern, el compilador no crea un almacenamiento para ella en memoria, sino que, tan solo tiene en cuenta que dicha variable ya ha sido declarada en otro modulo del programa y es del tipo de dato que se indica.<br><br>
+El especificador static actúa según el alcance de la variable:<br><br>
+• Para variables locales, el especificador static indica que dicha variable local debe almacenarse de forma permanente en memoria, tal y como si fuera una
+variable global, pero su alcance será el que correspondería a una variable local declarada en la subrutina o bloque. El principal efecto que provoca la
+declaración como static de una variable local es el hecho de que la variable conserva su valor entre llamadas a la función.<br><br>
+• Para variables globales, el especificador static indica que dicha variable global
+es local al módulo del programa donde se declara, y, por tanto, no será
+conocida por ningún otro módulo del programa.<br><br>
+El especificador register se aplica solo a variables locales de tipo char e int. Dicho especificador indica al compilador que, caso de ser posible, mantenga esa
+variable en un registro de la CPU y no cree por ello una variable en la memoria. Se pueden declarar como register cuantas variables se deseen, pues el compilador ignorara dicha declaración caso de no poder ser satisfecha. El uso de variables con especificador de almacenamiento register permite colocar en registros de la CPU
+variables muy frecuentemente usadas, tales como contadores de bucles, etc.<br><br>
+Algunos ejemplos de uso de los especificadores de almacenamiento son:<br>
+<pre> register unsigned int a;<br>
+static float b;<br>
+extern int c;<br>
+static const unsigned long int d;</pre></p>
